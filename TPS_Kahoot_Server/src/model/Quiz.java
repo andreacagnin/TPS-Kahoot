@@ -36,12 +36,34 @@ public class Quiz {
 		return this.filepath;
 	}
 	
-	public ArrayList<String> invioDomanda() {
+	public ArrayList<String> invioDomanda(int index) {
+		
+		int i = 0;
 		
 		try {
 			
 	        input = new FileInputStream(quiz);
 	        boolean flag = false;
+	        
+	        if(index != 0) {
+	        	
+	        	while(index > 0) {
+	        		
+	        		int c;
+		        	while((c = input.read()) != -1) {
+		        		
+		        		char character = (char) c;
+		        		
+		        		if(character == '!')
+		        			break;
+		        		
+		        	}
+		        	
+		        	index--;
+	        		
+	        	}
+	        	
+	        }
 			
 			while(!flag) {
 					
@@ -54,10 +76,23 @@ public class Quiz {
 		          char character = (char) c;
 		          
 		          if(character == ',') {
-			        	
+		        	  
 		        	  c = input.read();
 		        	  character = (char) c;
 		        	  value += character;
+		        	  
+		        	  temp = temp.replaceAll("\r\n", "");
+		        	  
+		        	  domande.add(temp);
+				      this.controlloDomande.put(temp, value);
+				      
+				      temp = "";
+				      value = "";
+		        	  
+		          }else if(character == '!'){
+		        	  
+		        	  flag = true;
+		        	  break;
 		        	  
 		          }else {
 		        	  
@@ -67,12 +102,7 @@ public class Quiz {
 		          
 		        }
 		        
-		        if(c == -1)
-		        	  flag = true;
-		      
-		        domande.add(temp);
-		        this.controlloDomande.put(temp, value);
-		        
+		        i++;
 			}
 			
 			

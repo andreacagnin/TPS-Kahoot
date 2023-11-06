@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import model.*;
 import view.Server_GUI;
@@ -9,13 +10,16 @@ import view.Server_GUI;
 public class Controller implements ActionListener{
 	
 	private Server_GUI finestra;
-	
 	private Quiz quiz;
+	
+	private ArrayList<String> array;
 
 	public Controller(Server_GUI finestra, Quiz quiz) {
 		// TODO Auto-generated constructor stub
 		this.finestra = finestra;
 		this.quiz = quiz;
+		
+		array = new ArrayList<String>();
 		
 		finestra.registraEventi(this);
 	}
@@ -27,7 +31,7 @@ public class Controller implements ActionListener{
 			
 			new Server();
 			quiz.setQuiz(finestra.getQuiz());
-			quiz.invioDomanda();
+			array = quiz.invioDomanda(1);
 			
 		}
 	}
