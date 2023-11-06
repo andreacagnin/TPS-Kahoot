@@ -1,10 +1,5 @@
 domanda
-1
-2
-3
-4
-domanda_1
-1
-2
-3
-4
+ciao,0
+sossai,1
+giroud,0
+giacometti,0

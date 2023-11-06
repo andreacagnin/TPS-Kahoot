@@ -6,6 +6,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.Controller;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -19,7 +22,7 @@ public class Server_GUI extends JFrame {
 	private Select select;
 	private JLabel lblTitolo;
 	private JLabel lblSottotitolo;
-	private JButton btnNewButton;
+	private JButton btnInit;
 
 	/**
 	 * Create the frame.
@@ -58,18 +61,35 @@ public class Server_GUI extends JFrame {
 		lblSottotitolo.setBounds(285, 116, 354, 73);
 		contentPane.add(lblSottotitolo);
 		
-		btnNewButton = new JButton("Inizia il quiz");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setDefaultCapable(false);
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setFocusable(false);
-		btnNewButton.setFocusPainted(false);
-		btnNewButton.setVerifyInputWhenFocusTarget(false);
-		btnNewButton.setRolloverEnabled(false);
-		btnNewButton.setRequestFocusEnabled(false);
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setBounds(371, 378, 182, 47);
-		contentPane.add(btnNewButton);
+		btnInit = new JButton("Inizia il quiz");
+		btnInit.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnInit.setDefaultCapable(false);
+		btnInit.setBorderPainted(false);
+		btnInit.setFocusable(false);
+		btnInit.setFocusPainted(false);
+		btnInit.setVerifyInputWhenFocusTarget(false);
+		btnInit.setRolloverEnabled(false);
+		btnInit.setRequestFocusEnabled(false);
+		btnInit.setBackground(new Color(255, 255, 255));
+		btnInit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnInit.setBounds(371, 378, 182, 47);
+		contentPane.add(btnInit);
 	}
+
+	public JButton getbtnInit() {
+		// TODO Auto-generated method stub
+		return btnInit;
+	}
+
+	public void registraEventi(Controller controller) {
+		// TODO Auto-generated method stub
+		btnInit.addActionListener(controller);
+	}
+
+	public String getQuiz() {
+		// TODO Auto-generated method stub
+		return select.getTitoloQuiz();
+	}
+	
+	
 }

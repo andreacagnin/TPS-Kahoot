@@ -51,7 +51,6 @@ public class Select extends JPanel {
 				
 				String data = myReader.nextLine();
 				select[i] = data.replaceAll("_", " ");
-		        System.out.println(select[i]);
 				
 		        i++;
 			}
@@ -86,5 +85,12 @@ public class Select extends JPanel {
 		}
 		
 		return i;
+	}
+
+	public String getTitoloQuiz() {
+		// TODO Auto-generated method stub
+		String s = (String) comboBox.getSelectedItem();
+		
+		return s.replaceAll(" ", "_");
 	}
 }
