@@ -6,15 +6,29 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Client;
+
 import java.awt.Cursor;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField;
+import javax.swing.SpringLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class Client_GUI extends JFrame {
-
+public class Client_GUI extends JFrame implements ActionListener{
+	public String ipserver;
 	private JPanel contentPane;
+	public JPanel panelRichiestaClient;
+	private JFormattedTextField ipLogin;
+	private JButton richiestaBtn;
 	private JButton bottone1;
 	private JButton bottone2;
 	private JButton bottone3;
@@ -34,6 +48,37 @@ public class Client_GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		setContentPane(contentPane);
+		
+		panelRichiestaClient = new JPanel();
+		panelRichiestaClient.setBackground(new Color(51, 51, 51));
+		panelRichiestaClient.setBounds(0, 0, 908, 611);
+		contentPane.add(panelRichiestaClient);
+		
+		ipLogin = new JFormattedTextField();
+		ipLogin.setBounds(333, 169, 240, 28);
+		ipLogin.setVerifyInputWhenFocusTarget(false);
+		ipLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		ipLogin.setSelectedTextColor(new Color(0, 0, 0));
+		ipLogin.setText("IP SERVER");
+		
+		
+		panelRichiestaClient.setLayout(null);
+		
+		richiestaBtn = new JButton("New button");
+		richiestaBtn.setBounds(333, 306, 240, 39);
+		richiestaBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		richiestaBtn.setBackground(new Color(0, 0, 102));
+		panelRichiestaClient.add(richiestaBtn);
+		richiestaBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String serverAddress = ipLogin.getText();
+                Client client = new Client();
+                client.connectToServer(serverAddress);
+                // Add code to do something with the client instance or server connection.
+            }
+        });
+		panelRichiestaClient.add(ipLogin);
 		
 		bottone1 = new JButton("Risposta 1");
 		bottone1.setBackground(new Color(255, 255, 255));
@@ -97,5 +142,11 @@ public class Client_GUI extends JFrame {
 		lblDomanda.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDomanda.setBounds(252, 46, 420, 41);
 		contentPane.add(lblDomanda);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+			ipserver = ipLogin.getText();
+		
 	}
 }
