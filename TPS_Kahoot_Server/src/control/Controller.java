@@ -4,12 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
 import model.*;
 import view.Server_GUI;
 
 public class Controller implements ActionListener{
 	
 	private Server_GUI finestra;
+	private Server server;
 	private Quiz quiz;
 	
 	private ArrayList<String> array;
@@ -29,9 +31,10 @@ public class Controller implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource() == finestra.getbtnInit()) {
 			
-			new Server();
 			quiz.setQuiz(finestra.getQuiz());
-			array = quiz.invioDomanda(1);
+			server = new Server();
+			server.setQuiz(quiz);
+			server.inviaQuiz();
 			
 		}
 	}
