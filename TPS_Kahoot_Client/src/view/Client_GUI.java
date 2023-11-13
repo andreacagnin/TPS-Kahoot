@@ -90,11 +90,6 @@ public class Client_GUI extends JFrame {
 		quiz.getBottone3().setText(domande.getDomande().get(3));
 		quiz.getBottone4().setText(domande.getDomande().get(4));
 		
-		quiz.getBottone1().addActionListener(controller);
-		quiz.getBottone2().addActionListener(controller);
-		quiz.getBottone3().addActionListener(controller);
-		quiz.getBottone4().addActionListener(controller);
-		
 		quiz.getBottone1().setActionCommand(quiz.getBottone1().getText());
 		quiz.getBottone2().setActionCommand(quiz.getBottone2().getText());
 		quiz.getBottone3().setActionCommand(quiz.getBottone3().getText());

@@ -109,6 +109,7 @@ public class Quiz {
 		return domande;
 		
 	}
+	
 
 	public boolean getFlag() {
 		// TODO Auto-generated method stub
