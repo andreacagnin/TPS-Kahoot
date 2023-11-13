@@ -22,14 +22,16 @@ public class Controller implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == finestra.getbtnConnetti()) {
-			
 			IP = finestra.getIP();
 			
 			new Client(IP, finestra);
 			finestra.getConnessione().setVisible(false);
 			finestra.getQuiz().setVisible(true);
-			finestra.setPannelli();
+			finestra.setPannelli(this);
 			
+		}
+		if(e.getSource() == finestra.getBottone1()) {
+			System.out.println(finestra.getQuiz().getBottone1().getActionCommand());
 		}
 	}
 

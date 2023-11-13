@@ -30,6 +30,7 @@ public class Quiz extends JPanel {
 		setVisible(false);
 		
 		bottone1 = new JButton("Risposta 1");
+		bottone1.setActionCommand("");
 		bottone1.setBackground(new Color(255, 255, 255));
 		bottone1.setVerifyInputWhenFocusTarget(false);
 		bottone1.setRolloverEnabled(false);
@@ -44,6 +45,7 @@ public class Quiz extends JPanel {
 		add(bottone1);
 		
 		bottone2 = new JButton("Risposta 2");
+		bottone2.setActionCommand("");
 		bottone2.setBackground(new Color(255, 255, 255));
 		bottone2.setVerifyInputWhenFocusTarget(false);
 		bottone2.setRolloverEnabled(false);
@@ -58,6 +60,7 @@ public class Quiz extends JPanel {
 		add(bottone2);
 		
 		bottone3 = new JButton("Risposta 3");
+		bottone3.setActionCommand("");
 		bottone3.setBackground(new Color(255, 255, 255));
 		bottone3.setVerifyInputWhenFocusTarget(false);
 		bottone3.setRolloverEnabled(false);
@@ -72,6 +75,7 @@ public class Quiz extends JPanel {
 		add(bottone3);
 		
 		bottone4 = new JButton("Risposta 4");
+		bottone4.setActionCommand("");
 		bottone4.setBackground(new Color(255, 255, 255));
 		bottone4.setVerifyInputWhenFocusTarget(false);
 		bottone4.setRolloverEnabled(false);

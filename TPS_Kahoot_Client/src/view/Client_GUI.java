@@ -82,13 +82,44 @@ public class Client_GUI extends JFrame {
 		this.domande = domande;
 	}
 
-	public void setPannelli() {
+	public void setPannelli(Controller controller) {
 		// TODO Auto-generated method stub
 		quiz.getLblDomanda().setText(domande.getDomande().get(0));
 		quiz.getBottone1().setText(domande.getDomande().get(1));
 		quiz.getBottone2().setText(domande.getDomande().get(2));
 		quiz.getBottone3().setText(domande.getDomande().get(3));
 		quiz.getBottone4().setText(domande.getDomande().get(4));
+		
+		quiz.getBottone1().addActionListener(controller);
+		quiz.getBottone2().addActionListener(controller);
+		quiz.getBottone3().addActionListener(controller);
+		quiz.getBottone4().addActionListener(controller);
+		
+		quiz.getBottone1().setActionCommand(quiz.getBottone1().getText());
+		quiz.getBottone2().setActionCommand(quiz.getBottone2().getText());
+		quiz.getBottone3().setActionCommand(quiz.getBottone3().getText());
+		quiz.getBottone4().setActionCommand(quiz.getBottone4().getText());
+		
+	}
+
+	public Object getBottone1() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone1();
+	}
+	
+	public Object getBottone2() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone2();
+	}
+	
+	public Object getBottone3() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone3();
+	}
+	
+	public Object getBottone4() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone4();
 	}
 
 	
