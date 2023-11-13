@@ -102,4 +102,46 @@ public class Quiz extends JPanel {
 		bottone4.addActionListener(controller);
 	}
 
+	public JButton getBottone1() {
+		return bottone1;
+	}
+
+	public void setBottone1(JButton bottone1) {
+		this.bottone1 = bottone1;
+	}
+
+	public JButton getBottone2() {
+		return bottone2;
+	}
+
+	public void setBottone2(JButton bottone2) {
+		this.bottone2 = bottone2;
+	}
+
+	public JButton getBottone3() {
+		return bottone3;
+	}
+
+	public void setBottone3(JButton bottone3) {
+		this.bottone3 = bottone3;
+	}
+
+	public JButton getBottone4() {
+		return bottone4;
+	}
+
+	public void setBottone4(JButton bottone4) {
+		this.bottone4 = bottone4;
+	}
+
+	public JLabel getLblDomanda() {
+		return lblDomanda;
+	}
+
+	public void setLblDomanda(JLabel lblDomanda) {
+		this.lblDomanda = lblDomanda;
+	}
+	
+	
+
 }

@@ -3,7 +3,7 @@ package main;
 import java.awt.EventQueue;
 
 import control.Controller;
-import model.Client;
+import model.*;
 import view.Client_GUI;
 
 public class Main {
@@ -12,7 +12,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//Client client = new Client();#
+					//Client client = new Client();
 					
 					//FRAME
 					Client_GUI frame = new Client_GUI();

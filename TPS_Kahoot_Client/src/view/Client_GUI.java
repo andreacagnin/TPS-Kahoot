@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.Controller;
+import model.Domande;
 
 import java.awt.Cursor;
 import java.awt.Color;
@@ -22,6 +23,7 @@ public class Client_GUI extends JFrame {
 	private JPanel contentPane;
 	private Quiz quiz;
 	private Connessione connessione;
+	private Domande domande;
 
 	/**
 	 * Create the frame.
@@ -70,6 +72,23 @@ public class Client_GUI extends JFrame {
 	public Quiz getQuiz() {
 		// TODO Auto-generated method stub
 		return quiz;
+	}
+
+	public Domande getDomande() {
+		return domande;
+	}
+
+	public void setDomande(Domande domande) {
+		this.domande = domande;
+	}
+
+	public void setPannelli() {
+		// TODO Auto-generated method stub
+		quiz.getLblDomanda().setText(domande.getDomande().get(0));
+		quiz.getBottone1().setText(domande.getDomande().get(1));
+		quiz.getBottone2().setText(domande.getDomande().get(2));
+		quiz.getBottone3().setText(domande.getDomande().get(3));
+		quiz.getBottone4().setText(domande.getDomande().get(4));
 	}
 
 	

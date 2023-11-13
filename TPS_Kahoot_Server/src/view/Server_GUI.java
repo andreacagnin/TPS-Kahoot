@@ -23,6 +23,7 @@ public class Server_GUI extends JFrame {
 	private JLabel lblTitolo;
 	private JLabel lblSottotitolo;
 	private JButton btnInit;
+	private JButton btnAvvioDelServer;
 
 	/**
 	 * Create the frame.
@@ -72,24 +73,42 @@ public class Server_GUI extends JFrame {
 		btnInit.setRequestFocusEnabled(false);
 		btnInit.setBackground(new Color(255, 255, 255));
 		btnInit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnInit.setBounds(371, 378, 182, 47);
+		btnInit.setBounds(511, 378, 182, 47);
 		contentPane.add(btnInit);
+		
+		btnAvvioDelServer = new JButton("Avvio del server");
+		btnAvvioDelServer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAvvioDelServer.setVerifyInputWhenFocusTarget(false);
+		btnAvvioDelServer.setRolloverEnabled(false);
+		btnAvvioDelServer.setRequestFocusEnabled(false);
+		btnAvvioDelServer.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAvvioDelServer.setFocusable(false);
+		btnAvvioDelServer.setFocusPainted(false);
+		btnAvvioDelServer.setDefaultCapable(false);
+		btnAvvioDelServer.setBorderPainted(false);
+		btnAvvioDelServer.setBackground(Color.WHITE);
+		btnAvvioDelServer.setBounds(231, 378, 182, 47);
+		contentPane.add(btnAvvioDelServer);
 	}
 
 	public JButton getbtnInit() {
 		// TODO Auto-generated method stub
 		return btnInit;
 	}
+	
+	public JButton getbtnAvvio() {
+		// TODO Auto-generated method stub
+		return btnAvvioDelServer;
+	}
 
 	public void registraEventi(Controller controller) {
 		// TODO Auto-generated method stub
 		btnInit.addActionListener(controller);
+		btnAvvioDelServer.addActionListener(controller);
 	}
 
 	public String getQuiz() {
 		// TODO Auto-generated method stub
 		return select.getTitoloQuiz();
 	}
-	
-	
 }
