@@ -13,7 +13,11 @@ public class Connessione extends Thread {
 	private ObjectOutputStream out;
 	private Quiz quiz;
 	
+	private boolean endQuiz;
+	
 	public Connessione(Socket richiestaClient, Server server) {
+		
+		this.endQuiz = false;
 		
 		this.server = server;
 		
@@ -56,21 +60,64 @@ public class Connessione extends Thread {
 	
 	public void run() { 
 		
+		setQuiz(server.getQuiz());
+		
 		try { 
 			
-			String messaggio = ""; 
+			int i = 1;
+			while(!getEndQuiz()) {
 			
-			while (!messaggio.equals("fine")) { 
+				String s = "";
+				
+				Object o = in.readObject();
+				int punteggi = 0;
+				
+				s = (String) o;
+				
+			
+				if(s.compareTo("") == 0) {
+					
+				}else {
+					if(quiz.controlloRisposte(s)) {
+						punteggi += 3;
+						System.out.println("giusto");
+					}else {
+						System.out.println("sbagliato");
+					}
+				}
 				
 				
-			} 
+				o = (Object) punteggi;
+				
+				System.out.println("b");
+				out.writeObject(o);
+				
+				out.writeObject(quiz.invioDomanda(i));
+				if(quiz.getFlag())
+					setEndQuiz(true);
+				i++;
+				
+			}
+			
 			connessione.close(); 
 			
-		} catch (IOException e) { e.printStackTrace(); } 
+		} catch (IOException | ClassNotFoundException e) { e.printStackTrace(); } 
 	} 
 	
 	public void setQuiz(Quiz quiz) {
 		// TODO Auto-generated method stub
 		this.quiz = quiz;
 	}
+<<<<<<< Updated upstream
 }
+=======
+	
+	public void setEndQuiz(boolean flag) {
+		this.endQuiz = flag;
+	}
+	
+	public boolean getEndQuiz() {
+		return this.endQuiz;
+	}
+}
+>>>>>>> Stashed changes

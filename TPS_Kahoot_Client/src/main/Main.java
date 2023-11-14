@@ -17,8 +17,11 @@ public class Main {
 					//FRAME
 					Client_GUI frame = new Client_GUI();
 					
+					//MODEL
+					Punteggi p = new Punteggi();
+					
 					//CONTROLLER
-					new Controller(frame);
+					new Controller(frame, p);
 					
 					frame.setVisible(true);
 					

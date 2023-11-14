@@ -13,6 +13,7 @@ public class Quiz {
 	private File quiz;
 	private String filepath;
 	private Map<String, String> controlloDomande;
+	private ArrayList<String> domande;
 	private boolean flag;
 	
 	public InputStream input;
@@ -20,7 +21,6 @@ public class Quiz {
 	public Quiz() {
 		this.quiz = null;
 		this.flag = false;
-		controlloDomande = new HashMap<String, String>();
 	}
 	
 	public void setQuiz(String nomeFile) {
@@ -35,7 +35,8 @@ public class Quiz {
 	
 	public ArrayList<String> invioDomanda(int index) {
 		
-		ArrayList<String> domande = new ArrayList<String>();
+		domande = new ArrayList<String>();
+		controlloDomande = new HashMap<String, String>();
 		
 		try {
 			
@@ -89,6 +90,8 @@ public class Quiz {
 		          }else if(character == '!'){
 		        	  
 		        	  flag = true;
+		        	  if((c = input.read()) != -1)
+		        		  setFlag(true);
 		        	  break;
 		        	  
 		          }else {
@@ -106,14 +109,37 @@ public class Quiz {
 			e.printStackTrace();
 		}
 		
+		System.out.println(domande);
+		
 		return domande;
 		
 	}
 	
 
+	public boolean controlloRisposte(String risposta) {
+		
+		if((controlloDomande.get(risposta)).equals("1"))
+			return true;
+		else
+			return false;
+		
+	}
+	
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+
 	public boolean getFlag() {
 		// TODO Auto-generated method stub
 		return this.flag;
+	}
+
+	public Map<String, String> getControlloDomande() {
+		return controlloDomande;
+	}
+
+	public void setControlloDomande(Map<String, String> controlloDomande) {
+		this.controlloDomande = controlloDomande;
 	}
 
 }

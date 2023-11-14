@@ -8,7 +8,6 @@ import view.Client_GUI;
 
 public class Client {
 	
-	private static final long serialVersionUID = 1L; // You can choose your own value
     private Socket connessione;
     
     private BufferedReader dalServer; 
@@ -18,10 +17,14 @@ public class Client {
 	private ObjectOutputStream out;
 	private Object receivedArray;
 	private Domande domande;
+	private String risposta;
+	private Punteggi punteggi;
 	
 	private Client_GUI finestra;
 	
 	public Client(String indirizzo, Client_GUI finestra) { 
+		
+		this.finestra = finestra;
 		
 		boolean connesso = false;
 		
@@ -60,6 +63,7 @@ public class Client {
 	            
 	            domande = new Domande(receivedArray);
 	            finestra.setDomande(domande);
+	            
 			}
             
 		} catch (IOException | ClassNotFoundException e) { 
@@ -71,62 +75,44 @@ public class Client {
 	public void conversazione() {
 		// TODO Auto-generated method stub
 		try {
-			Thread.sleep(1000);
+			
+			Object o = (Object) risposta;
+			int punteggi = 0;
+			
+			System.out.println("a");
+			out.writeObject(o);
+			
+			punteggi = (int) in.readObject();
+			
+			this.punteggi.setPunteggi(punteggi);
+			
+			receivedArray = in.readObject();
+
+            System.out.print("Received string array: " + receivedArray);
+            
+            domande = new Domande(receivedArray);
+            finestra.setDomande(domande);
 			
 			
-		} catch (InterruptedException e) {
+		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+	
+	
+	
+	public void setRisposta(String risposta) {
+		this.risposta = risposta;
+	}
+
+	public Punteggi getPunteggi() {
+		return punteggi;
+	}
+
+	public void setPunteggi(Punteggi punteggi) {
+		this.punteggi = punteggi;
 	}
  
 }
-
-/*package model;
-
-import java.io.*;
-import java.net.Socket;
-import java.util.ArrayList;
-
-public class Client {
-	
-	private static final long serialVersionUID = 1L; // You can choose your own value
-    private Socket connessione;
-    private ObjectInputStream in;
-	private ObjectOutputStream out;
-	private Object receivedArray;
-	
-	public Client(String indirizzo) { 
-		
-		try { 
-			connessione = new Socket(indirizzo, 20000); 
-			
-			out = new ObjectOutputStream(connessione.getOutputStream());
-			in = new ObjectInputStream(connessione.getInputStream());
-			
-			receivedArray = in.readObject();
-			
-		} catch (IOException | ClassNotFoundException e) { 
-			
-			e.printStackTrace(); 
-		} 
-	}
-
-	public void conversazione() {
-		// TODO Auto-generated method stub
-		try {
-			Thread.sleep(1000);
-			
-			//receivedArray = in.readObject();
-			System.out.print("Received string array: " + receivedArray);
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
- 
-}*/
-

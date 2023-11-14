@@ -98,14 +98,6 @@ public class Quiz extends JPanel {
 		
 	}
 
-	public void registraEventi(Controller controller) {
-		// TODO Auto-generated method stub
-		bottone1.addActionListener(controller);
-		bottone2.addActionListener(controller);
-		bottone3.addActionListener(controller);
-		bottone4.addActionListener(controller);
-	}
-
 	public JButton getBottone1() {
 		return bottone1;
 	}

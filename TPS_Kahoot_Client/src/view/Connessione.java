@@ -31,7 +31,7 @@ public class Connessione extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		
-		textField = new JTextField("192.168.0.8");
+		textField = new JTextField("192.168.146.105");
 		textField.setBounds(336, 123, 252, 38);
 		add(textField);
 		textField.setColumns(10);

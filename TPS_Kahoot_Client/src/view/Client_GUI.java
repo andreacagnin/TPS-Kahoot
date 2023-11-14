@@ -51,7 +51,6 @@ public class Client_GUI extends JFrame {
 	public void registraEventi(Controller controller) {
 		// TODO Auto-generated method stub
 		connessione.registraEventi(controller);
-		quiz.registraEventi(controller);
 	}
 	
 	public Object getbtnConnetti() {
@@ -84,12 +83,17 @@ public class Client_GUI extends JFrame {
 
 	public void setPannelli(Controller controller) {
 		// TODO Auto-generated method stub
+		System.out.println(domande.getDomande().get(0));
 		quiz.getLblDomanda().setText(domande.getDomande().get(0));
 		quiz.getBottone1().setText(domande.getDomande().get(1));
 		quiz.getBottone2().setText(domande.getDomande().get(2));
 		quiz.getBottone3().setText(domande.getDomande().get(3));
 		quiz.getBottone4().setText(domande.getDomande().get(4));
+<<<<<<< Updated upstream
 		
+=======
+			
+>>>>>>> Stashed changes
 		quiz.getBottone1().setActionCommand(quiz.getBottone1().getText());
 		quiz.getBottone2().setActionCommand(quiz.getBottone2().getText());
 		quiz.getBottone3().setActionCommand(quiz.getBottone3().getText());
@@ -115,6 +119,14 @@ public class Client_GUI extends JFrame {
 	public Object getBottone4() {
 		// TODO Auto-generated method stub
 		return quiz.getBottone4();
+	}
+
+	public void setActionListener(Controller controller) {
+		// TODO Auto-generated method stub
+		quiz.getBottone1().addActionListener(controller);
+		quiz.getBottone2().addActionListener(controller);
+		quiz.getBottone3().addActionListener(controller);
+		quiz.getBottone4().addActionListener(controller);
 	}
 
 	

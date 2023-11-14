@@ -57,6 +57,10 @@ public class Server extends Thread {
 		this.quiz = quiz;
 	}
 	
+	public Quiz getQuiz() {
+		return this.quiz;
+	}
+	
 	public ArrayList<String> getQuiz(int i) {
 		return quiz.invioDomanda(i);
 	}
