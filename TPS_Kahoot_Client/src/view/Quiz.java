@@ -19,17 +19,20 @@ public class Quiz extends JPanel {
 	private JButton bottone3;
 	private JButton bottone4;
 	private JLabel lblDomanda;
+	private JLabel lblTitolo;
 	
 	public Quiz() {
 		setBounds(0, 0, 924, 650);
-		setBackground(new Color(40, 40, 40));
+		setBackground(new Color(0, 153, 204));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(null);
 		setVisible(false);
 		
 		bottone1 = new JButton("Risposta 1");
+		bottone1.setForeground(new Color(240, 248, 255));
+		bottone1.setFont(new Font("DejaVu Sans Mono", Font.BOLD, 18));
 		bottone1.setActionCommand("");
-		bottone1.setBackground(new Color(255, 255, 255));
+		bottone1.setBackground(new Color(51, 204, 102));
 		bottone1.setVerifyInputWhenFocusTarget(false);
 		bottone1.setRolloverEnabled(false);
 		bottone1.setRequestFocusEnabled(false);
@@ -43,8 +46,10 @@ public class Quiz extends JPanel {
 		add(bottone1);
 		
 		bottone2 = new JButton("Risposta 2");
+		bottone2.setForeground(new Color(240, 248, 255));
+		bottone2.setFont(new Font("DejaVu Sans Mono", Font.BOLD, 18));
 		bottone2.setActionCommand("");
-		bottone2.setBackground(new Color(255, 255, 255));
+		bottone2.setBackground(new Color(51, 0, 255));
 		bottone2.setVerifyInputWhenFocusTarget(false);
 		bottone2.setRolloverEnabled(false);
 		bottone2.setRequestFocusEnabled(false);
@@ -58,8 +63,10 @@ public class Quiz extends JPanel {
 		add(bottone2);
 		
 		bottone3 = new JButton("Risposta 3");
+		bottone3.setForeground(new Color(240, 248, 255));
+		bottone3.setFont(new Font("DejaVu Sans Mono", Font.BOLD, 18));
 		bottone3.setActionCommand("");
-		bottone3.setBackground(new Color(255, 255, 255));
+		bottone3.setBackground(new Color(255, 204, 102));
 		bottone3.setVerifyInputWhenFocusTarget(false);
 		bottone3.setRolloverEnabled(false);
 		bottone3.setRequestFocusEnabled(false);
@@ -73,8 +80,10 @@ public class Quiz extends JPanel {
 		add(bottone3);
 		
 		bottone4 = new JButton("Risposta 4");
+		bottone4.setForeground(new Color(240, 248, 255));
+		bottone4.setFont(new Font("DejaVu Sans Mono", Font.BOLD, 18));
 		bottone4.setActionCommand("");
-		bottone4.setBackground(new Color(255, 255, 255));
+		bottone4.setBackground(new Color(255, 102, 102));
 		bottone4.setVerifyInputWhenFocusTarget(false);
 		bottone4.setRolloverEnabled(false);
 		bottone4.setRequestFocusEnabled(false);
@@ -90,9 +99,17 @@ public class Quiz extends JPanel {
 		lblDomanda = new JLabel("Domanda");
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomanda.setForeground(new Color(255, 255, 255));
-		lblDomanda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDomanda.setBounds(53, 46, 802, 41);
+		lblDomanda.setFont(new Font("DejaVu Sans Mono", Font.BOLD, 20));
+		lblDomanda.setBounds(53, 46, 802, 100);
 		add(lblDomanda);
+		
+		lblTitolo = new JLabel("EnigMente");
+		lblTitolo.setBackground(new Color(51, 102, 204));
+		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitolo.setForeground(new Color(204, 255, 204));
+		lblTitolo.setFont(new Font("Impact", Font.PLAIN, 22));
+		lblTitolo.setBounds(10, 11, 117, 47);
+		add(lblTitolo);
 		
 	}
 	

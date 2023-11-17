@@ -30,10 +30,11 @@ public class Server_GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public Server_GUI() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 650);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 128));
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -46,35 +47,36 @@ public class Server_GUI extends JFrame {
 		select.setFocusTraversalKeysEnabled(false);
 		select.setFocusable(false);
 		select.setBackground(new Color(255, 255, 255));
-		select.setBounds(285, 200, 354, 22);
+		select.setBounds(285, 323, 354, 22);
 		contentPane.add(select);
 		
-		lblTitolo = new JLabel("Quizzone");
+		lblTitolo = new JLabel("EnigMente");
 		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitolo.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblTitolo.setFont(new Font("Impact", Font.BOLD, 79));
 		lblTitolo.setForeground(new Color(255, 255, 255));
-		lblTitolo.setBounds(285, 29, 354, 73);
+		lblTitolo.setBounds(10, 40, 888, 94);
 		contentPane.add(lblTitolo);
 		
 		lblSottotitolo = new JLabel("- Scegli il quiz -");
 		lblSottotitolo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSottotitolo.setForeground(Color.WHITE);
-		lblSottotitolo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblSottotitolo.setBounds(285, 116, 354, 73);
+		lblSottotitolo.setFont(new Font("Ink Free", Font.BOLD, 28));
+		lblSottotitolo.setBounds(285, 239, 354, 73);
 		contentPane.add(lblSottotitolo);
 		
 		btnAvvioDelServer = new JButton("Inizia il quiz");
+		btnAvvioDelServer.setForeground(new Color(135, 206, 235));
 		btnAvvioDelServer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAvvioDelServer.setVerifyInputWhenFocusTarget(false);
 		btnAvvioDelServer.setRolloverEnabled(false);
 		btnAvvioDelServer.setRequestFocusEnabled(false);
-		btnAvvioDelServer.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAvvioDelServer.setFont(new Font("Impact", Font.PLAIN, 35));
 		btnAvvioDelServer.setFocusable(false);
 		btnAvvioDelServer.setFocusPainted(false);
 		btnAvvioDelServer.setDefaultCapable(false);
 		btnAvvioDelServer.setBorderPainted(false);
-		btnAvvioDelServer.setBackground(Color.WHITE);
-		btnAvvioDelServer.setBounds(371, 405, 182, 47);
+		btnAvvioDelServer.setBackground(new Color(147, 112, 219));
+		btnAvvioDelServer.setBounds(285, 460, 354, 87);
 		contentPane.add(btnAvvioDelServer);
 	}
 	

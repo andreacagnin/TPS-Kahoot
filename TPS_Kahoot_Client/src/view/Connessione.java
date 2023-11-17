@@ -20,30 +20,35 @@ public class Connessione extends JPanel {
 	private JTextField textField;
 	private JLabel lblNewLabel;
 	private JButton btnConnettiti;
+	private JLabel lblTitolo;
 
 	/**
 	 * Create the panel.
 	 */
 	public Connessione() {
 		setBounds(0, 0, 924, 650);
-		setBackground(new Color(40, 40, 40));
+		setBackground(new Color(30, 144, 255));
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(null);
 		setVisible(true);
 		
-		textField = new JTextField("192.168.0.8");
-		textField.setBounds(336, 123, 252, 38);
+		textField = new JTextField("");
+		textField.setBackground(new Color(0, 255, 255));
+		textField.setFont(new Font("Impact", Font.PLAIN, 21));
+		textField.setBounds(336, 292, 252, 45);
 		add(textField);
 		textField.setColumns(10);
 		
 		lblNewLabel = new JLabel("INSERIRE L'INDIRIZZO DEL SERVER");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setFont(new Font("Impact", Font.PLAIN, 33));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(336, 74, 252, 38);
+		lblNewLabel.setBounds(10, 194, 904, 55);
 		add(lblNewLabel);
 		
-		btnConnettiti = new JButton("CONNETTITI");
+		btnConnettiti = new JButton("VAI CON LE DOMANDE");
+		btnConnettiti.setForeground(new Color(106, 90, 205));
+		btnConnettiti.setFont(new Font("Impact", Font.PLAIN, 26));
 		btnConnettiti.setFocusTraversalKeysEnabled(false);
 		btnConnettiti.setVerifyInputWhenFocusTarget(false);
 		btnConnettiti.setRolloverEnabled(false);
@@ -52,9 +57,16 @@ public class Connessione extends JPanel {
 		btnConnettiti.setFocusable(false);
 		btnConnettiti.setFocusPainted(false);
 		btnConnettiti.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnConnettiti.setBackground(new Color(255, 255, 255));
-		btnConnettiti.setBounds(336, 302, 252, 38);
+		btnConnettiti.setBackground(new Color(153, 204, 204));
+		btnConnettiti.setBounds(336, 471, 252, 62);
 		add(btnConnettiti);
+		
+		lblTitolo = new JLabel("EnigMente");
+		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitolo.setForeground(Color.WHITE);
+		lblTitolo.setFont(new Font("Impact", Font.BOLD, 79));
+		lblTitolo.setBounds(10, 33, 904, 94);
+		add(lblTitolo);
 		
 	}
 

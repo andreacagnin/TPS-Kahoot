@@ -29,6 +29,7 @@ public class Client_GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public Client_GUI() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 924, 650);
 		
@@ -37,6 +38,7 @@ public class Client_GUI extends JFrame {
 		setContentPane(contentPane);
 		
 		connessione = new Connessione();
+		connessione.setBackground(new Color(30, 144, 255));
 		connessione.setVisible(true);
 		connessione.setLocation(0, 0);
 		contentPane.add(connessione);
