@@ -83,22 +83,37 @@ public class Client_GUI extends JFrame {
 
 	public void setPannelli(Controller controller) {
 		// TODO Auto-generated method stub
-		System.out.println(domande.getDomande().get(0));
 		quiz.getLblDomanda().setText(domande.getDomande().get(0));
 		quiz.getBottone1().setText(domande.getDomande().get(1));
 		quiz.getBottone2().setText(domande.getDomande().get(2));
 		quiz.getBottone3().setText(domande.getDomande().get(3));
 		quiz.getBottone4().setText(domande.getDomande().get(4));
-<<<<<<< Updated upstream
 		
-=======
-			
->>>>>>> Stashed changes
 		quiz.getBottone1().setActionCommand(quiz.getBottone1().getText());
 		quiz.getBottone2().setActionCommand(quiz.getBottone2().getText());
 		quiz.getBottone3().setActionCommand(quiz.getBottone3().getText());
 		quiz.getBottone4().setActionCommand(quiz.getBottone4().getText());
 		
+	}
+	
+	public JButton getBtn1() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone1();
+	}
+	
+	public JButton getBtn2() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone2();
+	}
+	
+	public JButton getBtn3() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone3();
+	}
+	
+	public JButton getBtn4() {
+		// TODO Auto-generated method stub
+		return quiz.getBottone4();
 	}
 
 	public Object getBottone1() {

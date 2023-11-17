@@ -5,38 +5,28 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-public class Quiz {
+public class Quiz implements Runnable{
 	
 	private File quiz;
 	private String filepath;
-	private Map<String, String> controlloDomande;
 	private ArrayList<String> domande;
+	
 	private boolean flag;
+	private int index;
 	
 	public InputStream input;
 
 	public Quiz() {
+		this.index = 0;
 		this.quiz = null;
 		this.flag = false;
 	}
 	
-	public void setQuiz(String nomeFile) {
-		this.filepath = "src/quiz/" + nomeFile + ".txt";
-		quiz = new File(filepath);
-		this.flag = true;
-	}
-	
-	public String getFilepath() {
-		return this.filepath;
-	}
-	
-	public ArrayList<String> invioDomanda(int index) {
-		
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
 		domande = new ArrayList<String>();
-		controlloDomande = new HashMap<String, String>();
 		
 		try {
 			
@@ -66,7 +56,6 @@ public class Quiz {
 			while(!flag) {
 					
 				String temp = "";
-				String value = "";
 				int c;
 				
 		        while((c = input.read()) != -1) {
@@ -77,21 +66,21 @@ public class Quiz {
 		        	  
 		        	  c = input.read();
 		        	  character = (char) c;
-		        	  value += character;
 		        	  
 		        	  temp = temp.replaceAll("\r\n", "");
 		        	  
 		        	  domande.add(temp);
-				      this.controlloDomande.put(temp, value);
 				      
 				      temp = "";
-				      value = "";
 		        	  
 		          }else if(character == '!'){
 		        	  
 		        	  flag = true;
-		        	  if((c = input.read()) != -1)
+		        	  c = input.read();
+		        	  character = (char) c;
+		        	  if(character == '!') {
 		        		  setFlag(true);
+		        	  }
 		        	  break;
 		        	  
 		          }else {
@@ -101,6 +90,7 @@ public class Quiz {
 		          }
 		          
 		        }
+		      
 			}
 			
 			
@@ -108,21 +98,17 @@ public class Quiz {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println(domande);
-		
-		return domande;
-		
+
+		setDomande(domande);
 	}
 	
-
-	public boolean controlloRisposte(String risposta) {
-		
-		if((controlloDomande.get(risposta)).equals("1"))
-			return true;
-		else
-			return false;
-		
+	public void setQuiz(String nomeFile) {
+		this.filepath = "src/quiz/" + nomeFile + ".txt";
+		quiz = new File(filepath);
+	}
+	
+	public String getFilepath() {
+		return this.filepath;
 	}
 	
 	public void setFlag(boolean flag) {
@@ -133,13 +119,21 @@ public class Quiz {
 		// TODO Auto-generated method stub
 		return this.flag;
 	}
-
-	public Map<String, String> getControlloDomande() {
-		return controlloDomande;
+	
+	public ArrayList<String> getDomande() {
+		return domande;
 	}
 
-	public void setControlloDomande(Map<String, String> controlloDomande) {
-		this.controlloDomande = controlloDomande;
+	public void setDomande(ArrayList<String> domande) {
+		this.domande = domande;
+	}
+	
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
 	}
 
 }

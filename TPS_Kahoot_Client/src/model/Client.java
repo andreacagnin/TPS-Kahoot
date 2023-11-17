@@ -2,35 +2,38 @@ package model;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 
+import control.Controller;
 import view.Client_GUI;
 
 public class Client {
 	
-    private Socket connessione;
-    
-    private BufferedReader dalServer; 
-	private PrintStream alServer;
+    private Socket connection;
     
     private ObjectInputStream in;
 	private ObjectOutputStream out;
 	private Object receivedArray;
-	private Domande domande;
-	private String risposta;
-	private Punteggi punteggi;
 	
 	private Client_GUI finestra;
+	private Controller controller;
+	private Domande domande;
+	private Punteggi punteggi;
 	
-	public Client(String indirizzo, Client_GUI finestra) { 
+	private String risposta;
+	private boolean flag;
+	
+	public Client(String indirizzo, Client_GUI finestra, Controller controller, Punteggi punteggi) { 
 		
 		this.finestra = finestra;
+		this.controller = controller;
+		this.punteggi = punteggi;
+		this.flag = false;
 		
 		boolean connesso = false;
 		
 		while(!connesso) {
 			try {
-				connessione = new Socket(indirizzo, 20000);
+				connection = new Socket(indirizzo, 20000);
 				connesso = true;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -40,33 +43,10 @@ public class Client {
 		
 		try { 
 			
-			String message = "";
-			
-			dalServer = new BufferedReader(new InputStreamReader(connessione.getInputStream()));
-			alServer = new PrintStream(connessione.getOutputStream()); 
-			
-			message = dalServer.readLine();
-			if(message.compareTo("WAIT") == 0)
-				alServer.println("WAITING");
-			while(message.compareTo("WAIT") == 0) {
-				message = dalServer.readLine();
-			}
-			
-			if(message.compareTo("GO") == 0) {
-				
-				out = new ObjectOutputStream(connessione.getOutputStream());
-				in = new ObjectInputStream(connessione.getInputStream());
-				
-	            receivedArray = in.readObject();
-
-	            System.out.print("Received string array: " + receivedArray);
-	            
-	            domande = new Domande(receivedArray);
-	            finestra.setDomande(domande);
-	            
-			}
+			out = new ObjectOutputStream(connection.getOutputStream());
+			in = new ObjectInputStream(connection.getInputStream());
             
-		} catch (IOException | ClassNotFoundException e) { 
+		} catch (IOException e) { 
 			
 			e.printStackTrace(); 
 		} 
@@ -76,32 +56,44 @@ public class Client {
 		// TODO Auto-generated method stub
 		try {
 			
-			Object o = (Object) risposta;
-			int punteggi = 0;
-			
-			System.out.println("a");
-			out.writeObject(o);
-			
-			punteggi = (int) in.readObject();
-			
-			this.punteggi.setPunteggi(punteggi);
-			
+			//RICEZIONE DOMANDE
 			receivedArray = in.readObject();
-
-            System.out.print("Received string array: " + receivedArray);
+			if(receivedArray.equals("STOP")) {
+				System.out.println("PUNTEGGIO TOTALE: " + this.punteggi.getPunteggi());
+				connection.close();
+				setFlag(true);
+			}else {
+				domande = new Domande(receivedArray);
+				
+				finestra.setDomande(domande);
+				controller.set();
+			}
             
-            domande = new Domande(receivedArray);
-            finestra.setDomande(domande);
-			
-			
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-	
-	
+
+	public void invioRisposta() {
+		
+		try {
+			
+			//INVIO RISPOSTA
+			Object o = (Object) this.risposta;
+			out.writeObject(o);
+			
+			//RICEZIONE PUNTEGGIO
+			int punteggi = 0;
+			punteggi = (int) in.readObject();
+			this.punteggi.setPunteggi(punteggi);
+            
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	public void setRisposta(String risposta) {
 		this.risposta = risposta;
@@ -110,9 +102,13 @@ public class Client {
 	public Punteggi getPunteggi() {
 		return punteggi;
 	}
+	
+	public boolean isFlag() {
+		return flag;
+	}
 
-	public void setPunteggi(Punteggi punteggi) {
-		this.punteggi = punteggi;
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
  
 }

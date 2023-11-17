@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.Timer;
 
 import model.*;
@@ -12,11 +13,6 @@ public class Controller implements ActionListener{
 	private Client_GUI finestra;
 	
 	private String IP;
-<<<<<<< Updated upstream
-	private String risposta;
-	public Controller(Client_GUI finestra) {
-=======
-	private Risposta risposta;
 	private Client client;
 	private Punteggi punteggi;
 	private Timer timer1;
@@ -26,7 +22,6 @@ public class Controller implements ActionListener{
 	
 	public Controller(Client_GUI finestra, Punteggi p) {
 		controller = this;
->>>>>>> Stashed changes
 		this.finestra = finestra;
 		this.punteggi = p;
 		
@@ -35,21 +30,21 @@ public class Controller implements ActionListener{
 	
 	ActionListener rispostaVuota = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
-        	timer1.stop();
-        	risposta = new Risposta("");
-			client.setRisposta(risposta.getRisposta());
-			client.conversazione();
+			client.setRisposta("");
+			client.invioRisposta();
         }
     };
     
     ActionListener fineDomanda = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
+        	timer1.stop();
         	timer2.stop();
-        	finestra.getQuiz().setVisible(false);
-			finestra.setPannelli(controller);
-			finestra.getQuiz().setVisible(true);
-			timer1.start();
-			timer2.start();
+        	client.conversazione();
+			
+			if(!client.isFlag()) {
+				timer1.start();
+				timer2.start();
+			}
         }
     };
 
@@ -57,95 +52,79 @@ public class Controller implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == finestra.getbtnConnetti()) {
+			
 			IP = finestra.getIP();
-			
-			client = new Client(IP, finestra);
-			client.setPunteggi(punteggi);
+			client = new Client(IP, finestra, this, punteggi);
 			finestra.setActionListener(controller);
-			finestra.getConnessione().setVisible(false);
-			finestra.getQuiz().setVisible(true);
-			finestra.setPannelli(this);
-			
-			timer1 = new Timer(5000, rispostaVuota);
-			timer1.start();
-			
-			timer2 = new Timer(8000, fineDomanda);
-			timer2.start();
+			client.conversazione();
 		}
-
-        
-        
 		if(e.getSource() == finestra.getBottone1()) {
-<<<<<<< Updated upstream
-			risposta=finestra.getQuiz().getBottone1().getActionCommand();
+			
+			timer1.stop();
+			client.setRisposta(finestra.getQuiz().getBottone1().getActionCommand());
+
+			finestra.getBtn1().setEnabled(false);
+			finestra.getBtn2().setEnabled(false);
+			finestra.getBtn3().setEnabled(false);
+			finestra.getBtn4().setEnabled(false);
+			
+			client.invioRisposta();
+			
 		}else if(e.getSource() == finestra.getBottone2()) {
-			risposta=finestra.getQuiz().getBottone2().getActionCommand();
+			
+			timer1.stop();
+			client.setRisposta(finestra.getQuiz().getBottone2().getActionCommand());
+
+			finestra.getBtn1().setEnabled(false);
+			finestra.getBtn2().setEnabled(false);
+			finestra.getBtn3().setEnabled(false);
+			finestra.getBtn4().setEnabled(false);
+			
+			client.invioRisposta();
+			
 		}else if(e.getSource() == finestra.getBottone3()) {
-			risposta=finestra.getQuiz().getBottone3().getActionCommand();
+			
+			timer1.stop();
+			client.setRisposta(finestra.getQuiz().getBottone3().getActionCommand());
+
+			finestra.getBtn1().setEnabled(false);
+			finestra.getBtn2().setEnabled(false);
+			finestra.getBtn3().setEnabled(false);
+			finestra.getBtn4().setEnabled(false);
+			
+			client.invioRisposta();
+			
 		}else if(e.getSource() == finestra.getBottone4()) {
-			risposta=finestra.getQuiz().getBottone4().getActionCommand();
+			
+			timer1.stop();
+			client.setRisposta(finestra.getQuiz().getBottone4().getActionCommand());
+
+			finestra.getBtn1().setEnabled(false);
+			finestra.getBtn2().setEnabled(false);
+			finestra.getBtn3().setEnabled(false);
+			finestra.getBtn4().setEnabled(false);
+			
+			client.invioRisposta();
+			
 		}
 	}
-
-}
-
-/*package control;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import model.*;
-import view.*;
-
-public class Controller implements ActionListener{
 	
-	private Client_GUI finestra;
-	
-	private String IP;
-	
-	public Controller(Client_GUI finestra) {
-		this.finestra = finestra;
+	public void set() {
 		
-		finestra.registraEventi(this);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == finestra.getbtnConnetti()) {
-=======
->>>>>>> Stashed changes
-			
-			timer1.stop();
-			risposta = new Risposta(e.getActionCommand());
-			client.setRisposta(risposta.getRisposta());
-			client.conversazione();
-			
-		}
-		if(e.getSource() == finestra.getBottone2()) {
-					
-			timer1.stop();
-			risposta = new Risposta(e.getActionCommand());
-			client.setRisposta(risposta.getRisposta());
-			client.conversazione();
-			
-		}
-		if(e.getSource() == finestra.getBottone3()) {
-			
-			timer1.stop();
-			risposta = new Risposta(e.getActionCommand());
-			client.setRisposta(risposta.getRisposta());
-			client.conversazione();
-			
-		}
-		if(e.getSource() == finestra.getBottone4()) {
-			
-			timer1.stop();
-			risposta = new Risposta(e.getActionCommand());
-			client.setRisposta(risposta.getRisposta());
-			client.conversazione();
-			
-		}
+		finestra.getConnessione().setVisible(false);
+		finestra.getQuiz().setVisible(true);
+		finestra.setPannelli(this);
+		
+		finestra.getBtn1().setEnabled(true);
+		finestra.getBtn2().setEnabled(true);
+		finestra.getBtn3().setEnabled(true);
+		finestra.getBtn4().setEnabled(true);
+		
+		timer1 = new Timer(5000, rispostaVuota);
+		timer1.start();
+		
+		timer2 = new Timer(8000, fineDomanda);
+		timer2.start();
 	}
 
 }

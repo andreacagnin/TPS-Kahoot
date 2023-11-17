@@ -10,8 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import control.Controller;
-
 public class Quiz extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -96,6 +94,26 @@ public class Quiz extends JPanel {
 		lblDomanda.setBounds(252, 46, 420, 41);
 		add(lblDomanda);
 		
+	}
+	
+	public JButton getBtn1() {
+		// TODO Auto-generated method stub
+		return bottone1;
+	}
+	
+	public JButton getBtn2() {
+		// TODO Auto-generated method stub
+		return bottone2;
+	}
+	
+	public JButton getBtn3() {
+		// TODO Auto-generated method stub
+		return bottone3;
+	}
+	
+	public JButton getBtn4() {
+		// TODO Auto-generated method stub
+		return bottone4;
 	}
 
 	public JButton getBottone1() {

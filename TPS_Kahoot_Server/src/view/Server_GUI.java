@@ -1,8 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +15,11 @@ import java.awt.Cursor;
 
 public class Server_GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 494720585099566505L;
+	
 	private JPanel contentPane;
 	private Select select;
 	private JLabel lblTitolo;

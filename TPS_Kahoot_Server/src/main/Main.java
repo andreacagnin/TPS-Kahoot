@@ -3,8 +3,8 @@ package main;
 import java.awt.EventQueue;
 
 import control.Controller;
-import model.Quiz;
-import view.Server_GUI;
+import model.*;
+import view.*;
 
 public class Main {
 
@@ -19,9 +19,11 @@ public class Main {
 					
 					//MODEL
 					Quiz quiz = new Quiz();
+					ControlloDomande cd = new ControlloDomande();
+					Server server = new Server();
 					
 					//CONTROLLER
-					new Controller(frame, quiz);
+					new Controller(frame, quiz, cd, server);
 					
 					frame.setVisible(true);
 					
