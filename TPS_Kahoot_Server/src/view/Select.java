@@ -43,9 +43,8 @@ public class Select extends JPanel {
 		
 		try {
 			
-			File quiz = new File("src/quiz/quiz.txt");
-			@SuppressWarnings("resource")
-			Scanner myReader = new Scanner(quiz);
+			quiz = new File("src/quiz/quiz.txt");
+			myReader = new Scanner(quiz);
 			
 			while(myReader.hasNextLine()) {
 				
@@ -70,12 +69,12 @@ public class Select extends JPanel {
 		
 		try {
 			
-			File quiz = new File("src/quiz/quiz.txt");
-			Scanner myReader = new Scanner(quiz);
+			quiz = new File("src/quiz/quiz.txt");
+			myReader = new Scanner(quiz);
 			
 			while(myReader.hasNextLine()) {
 				
-				String data = myReader.nextLine();
+				myReader.nextLine();
 		        i++;
 			}
 			

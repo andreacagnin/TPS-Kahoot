@@ -30,6 +30,12 @@ public class Controller implements ActionListener{
 	
 	ActionListener rispostaVuota = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
+        	
+        	finestra.getBtn1().setEnabled(false);
+			finestra.getBtn2().setEnabled(false);
+			finestra.getBtn3().setEnabled(false);
+			finestra.getBtn4().setEnabled(false);
+			
 			client.setRisposta("");
 			client.invioRisposta();
         }

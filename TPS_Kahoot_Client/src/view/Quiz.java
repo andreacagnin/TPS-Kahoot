@@ -39,7 +39,7 @@ public class Quiz extends JPanel {
 		bottone1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bottone1.setDefaultCapable(false);
 		bottone1.setBorderPainted(false);
-		bottone1.setBounds(53, 211, 310, 68);
+		bottone1.setBounds(53, 211, 310, 120);
 		add(bottone1);
 		
 		bottone2 = new JButton("Risposta 2");
@@ -54,7 +54,7 @@ public class Quiz extends JPanel {
 		bottone2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bottone2.setDefaultCapable(false);
 		bottone2.setBorderPainted(false);
-		bottone2.setBounds(53, 359, 310, 68);
+		bottone2.setBounds(53, 446, 310, 120);
 		add(bottone2);
 		
 		bottone3 = new JButton("Risposta 3");
@@ -69,7 +69,7 @@ public class Quiz extends JPanel {
 		bottone3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bottone3.setDefaultCapable(false);
 		bottone3.setBorderPainted(false);
-		bottone3.setBounds(545, 359, 310, 68);
+		bottone3.setBounds(545, 446, 310, 120);
 		add(bottone3);
 		
 		bottone4 = new JButton("Risposta 4");
@@ -84,14 +84,14 @@ public class Quiz extends JPanel {
 		bottone4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bottone4.setDefaultCapable(false);
 		bottone4.setBorderPainted(false);
-		bottone4.setBounds(545, 211, 310, 68);
+		bottone4.setBounds(545, 211, 310, 120);
 		add(bottone4);
 		
 		lblDomanda = new JLabel("Domanda");
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomanda.setForeground(new Color(255, 255, 255));
 		lblDomanda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDomanda.setBounds(252, 46, 420, 41);
+		lblDomanda.setBounds(53, 46, 802, 41);
 		add(lblDomanda);
 		
 	}

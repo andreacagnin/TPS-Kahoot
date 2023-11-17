@@ -24,7 +24,6 @@ public class Server_GUI extends JFrame {
 	private Select select;
 	private JLabel lblTitolo;
 	private JLabel lblSottotitolo;
-	private JButton btnInit;
 	private JButton btnAvvioDelServer;
 
 	/**
@@ -64,21 +63,7 @@ public class Server_GUI extends JFrame {
 		lblSottotitolo.setBounds(285, 116, 354, 73);
 		contentPane.add(lblSottotitolo);
 		
-		btnInit = new JButton("Inizia il quiz");
-		btnInit.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnInit.setDefaultCapable(false);
-		btnInit.setBorderPainted(false);
-		btnInit.setFocusable(false);
-		btnInit.setFocusPainted(false);
-		btnInit.setVerifyInputWhenFocusTarget(false);
-		btnInit.setRolloverEnabled(false);
-		btnInit.setRequestFocusEnabled(false);
-		btnInit.setBackground(new Color(255, 255, 255));
-		btnInit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnInit.setBounds(511, 378, 182, 47);
-		contentPane.add(btnInit);
-		
-		btnAvvioDelServer = new JButton("Avvio del server");
+		btnAvvioDelServer = new JButton("Inizia il quiz");
 		btnAvvioDelServer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAvvioDelServer.setVerifyInputWhenFocusTarget(false);
 		btnAvvioDelServer.setRolloverEnabled(false);
@@ -89,13 +74,8 @@ public class Server_GUI extends JFrame {
 		btnAvvioDelServer.setDefaultCapable(false);
 		btnAvvioDelServer.setBorderPainted(false);
 		btnAvvioDelServer.setBackground(Color.WHITE);
-		btnAvvioDelServer.setBounds(231, 378, 182, 47);
+		btnAvvioDelServer.setBounds(371, 405, 182, 47);
 		contentPane.add(btnAvvioDelServer);
-	}
-
-	public JButton getbtnInit() {
-		// TODO Auto-generated method stub
-		return btnInit;
 	}
 	
 	public JButton getbtnAvvio() {
@@ -105,7 +85,6 @@ public class Server_GUI extends JFrame {
 
 	public void registraEventi(Controller controller) {
 		// TODO Auto-generated method stub
-		btnInit.addActionListener(controller);
 		btnAvvioDelServer.addActionListener(controller);
 	}
 

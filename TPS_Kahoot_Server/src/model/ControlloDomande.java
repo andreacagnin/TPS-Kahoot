@@ -33,7 +33,7 @@ public class ControlloDomande {
 	        	
 	          char character = (char) c;
 	          
-	          if(character == ',') {
+	          if(character == ';') {
 	        	  
 	        	  c = input.read();
 	        	  character = (char) c;
@@ -73,6 +73,7 @@ public class ControlloDomande {
 	}
 	
 	public boolean controlloRisposte(String risposta) {
+		System.out.println(controlloDomande);
 		if((controlloDomande.get(risposta)).equals("1"))
 			return true;
 		else

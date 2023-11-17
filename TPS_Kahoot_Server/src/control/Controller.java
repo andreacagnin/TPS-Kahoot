@@ -2,7 +2,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.File;
 
 import model.*;
 import view.Server_GUI;
@@ -34,12 +34,6 @@ public class Controller implements ActionListener{
 			server.setQuiz(quiz);
 			server.setCd(cd);
 			server.start();
-			
-		}
-		if(e.getSource() == finestra.getbtnInit()) {
-			
-			
-			//server.setFlag();
 			
 		}
 	}

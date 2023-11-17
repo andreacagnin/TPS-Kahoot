@@ -62,10 +62,9 @@ public class Quiz implements Runnable{
 		        	
 		          char character = (char) c;
 		          
-		          if(character == ',') {
+		          if(character == ';') {
 		        	  
 		        	  c = input.read();
-		        	  character = (char) c;
 		        	  
 		        	  temp = temp.replaceAll("\r\n", "");
 		        	  
