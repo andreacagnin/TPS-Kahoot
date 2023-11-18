@@ -72,10 +72,14 @@ public class Connessione extends Thread {
 				s = (String) o;
 				
 				//CONTROLLO RISPOSTA
+				String s2 = "";
 				int punteggi = 0;
 				if(s.compareTo("") != 0) {
 					if(cd.controlloRisposte(s)) {
+						s2 = s;
 						punteggi += 3;
+					}else {
+						s2 = cd.getRispostaCorretta(s);
 					}
 				}
 				
@@ -83,6 +87,10 @@ public class Connessione extends Thread {
 				o = (Object) punteggi;				
 				out.writeObject(o);
 				out.flush();
+				
+				//INVIO RISPOSTA CORRETTA
+				o = (Object) s2;
+				out.writeObject(o);
 				
 				this.index++;
 				quiz.setIndex(index);

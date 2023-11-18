@@ -14,8 +14,10 @@ public class ControlloDomande {
 	public InputStream input;
 	private File file;
 	private String filepath;
+	private Quiz quiz;
 	
-	public ControlloDomande() {
+	public ControlloDomande(Quiz quiz) {
+		this.quiz = quiz;
 		controlloDomande = new HashMap<String, String>();
 	}
 	
@@ -98,5 +100,20 @@ public class ControlloDomande {
 
 	public Map<String, String> getControlloDomande() {
 		return controlloDomande;
+	}
+
+	public String getRispostaCorretta(String s) {
+		// TODO Auto-generated method stub
+		boolean trovato = false;
+		int i = 1;
+		while(!trovato) {
+			if(controlloDomande.get(quiz.getRisposta(i)).equals("1")) {
+				trovato = true;
+				return quiz.getRisposta(i);
+			}else
+				i++;
+		}
+		
+		return "";
 	}
 }

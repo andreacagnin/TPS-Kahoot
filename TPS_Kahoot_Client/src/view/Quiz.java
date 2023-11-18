@@ -172,6 +172,30 @@ public class Quiz extends JPanel {
 	public void setLblDomanda(JLabel lblDomanda) {
 		this.lblDomanda = lblDomanda;
 	}
+
+	public void getBtn(String s) {
+		// TODO Auto-generated method stub
+		if(bottone1.getActionCommand().equals(s)) {
+			bottone1.setBackground(new Color(128, 255, 0));
+		}else {
+			bottone1.setBackground(new Color(255, 66, 66));
+		}
+		if(bottone2.getActionCommand().equals(s)) {
+			bottone2.setBackground(new Color(128, 255, 0));
+		}else {
+			bottone2.setBackground(new Color(255, 66, 66));
+		}
+		if(bottone3.getActionCommand().equals(s)) {
+			bottone3.setBackground(new Color(128, 255, 0));
+		}else {
+			bottone3.setBackground(new Color(255, 66, 66));
+		}
+		if(bottone4.getActionCommand().equals(s)) {
+			bottone4.setBackground(new Color(128, 255, 0));
+		}else {
+			bottone4.setBackground(new Color(255, 66, 66));
+		}
+	}
 	
 	
 

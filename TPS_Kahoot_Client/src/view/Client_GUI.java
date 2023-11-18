@@ -96,6 +96,11 @@ public class Client_GUI extends JFrame {
 		quiz.getBottone3().setActionCommand(quiz.getBottone3().getText());
 		quiz.getBottone4().setActionCommand(quiz.getBottone4().getText());
 		
+		quiz.getBtn1().setBackground(new Color(51, 204, 102));
+		quiz.getBtn2().setBackground(new Color(51, 0, 255));
+		quiz.getBtn3().setBackground(new Color(255, 204, 102));
+		quiz.getBtn4().setBackground(new Color(255, 102, 102));
+		
 	}
 	
 	public JButton getBtn1() {
@@ -144,6 +149,11 @@ public class Client_GUI extends JFrame {
 		quiz.getBottone2().addActionListener(controller);
 		quiz.getBottone3().addActionListener(controller);
 		quiz.getBottone4().addActionListener(controller);
+	}
+
+	public void setBtn(String s) {
+		// TODO Auto-generated method stub
+		quiz.getBtn(s);
 	}
 
 	

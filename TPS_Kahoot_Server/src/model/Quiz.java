@@ -135,4 +135,9 @@ public class Quiz implements Runnable{
 		this.index = index;
 	}
 
+	public String getRisposta(int i) {
+		// TODO Auto-generated method stub
+		return domande.get(i);
+	}
+
 }

@@ -133,4 +133,9 @@ public class Controller implements ActionListener{
 		timer2.start();
 	}
 
+	public void setPannelli(String s) {
+		// TODO Auto-generated method stub
+		finestra.setBtn(s);
+	}
+
 }

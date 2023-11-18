@@ -87,6 +87,11 @@ public class Client {
 			int punteggi = 0;
 			punteggi = (int) in.readObject();
 			this.punteggi.setPunteggi(punteggi);
+			
+			//RICEZIONE RISPOSTA CORRETTA
+			String s =  "";
+			s = (String) in.readObject();
+			controller.setPannelli(s);
             
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block

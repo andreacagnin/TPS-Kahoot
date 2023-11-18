@@ -19,7 +19,7 @@ public class Main {
 					
 					//MODEL
 					Quiz quiz = new Quiz();
-					ControlloDomande cd = new ControlloDomande();
+					ControlloDomande cd = new ControlloDomande(quiz);
 					Server server = new Server();
 					
 					//CONTROLLER
