@@ -132,7 +132,12 @@ public class Controller implements ActionListener{
 		timer2 = new Timer(8000, fineDomanda);
 		timer2.start();
 	}
-
+	public void set1(int punteggi) {
+		finestra.getQuiz().setVisible(false);
+		
+		finestra.getSp().setVisible(true);
+		finestra.setPunteggi(punteggi);
+	}
 	public void setPannelli(String s) {
 		// TODO Auto-generated method stub
 		finestra.setBtn(s);

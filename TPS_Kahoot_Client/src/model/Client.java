@@ -59,7 +59,7 @@ public class Client {
 			//RICEZIONE DOMANDE
 			receivedArray = in.readObject();
 			if(receivedArray.equals("STOP")) {
-				System.out.println("PUNTEGGIO TOTALE: " + this.punteggi.getPunteggi());
+				controller.set1( this.punteggi.getPunteggi());
 				connection.close();
 				setFlag(true);
 			}else {

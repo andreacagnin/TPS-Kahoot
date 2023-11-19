@@ -18,11 +18,6 @@ Twin Ion Engine;1
 Total Evil Empire;0
 The Imperial Empire;0
 Two Intercepted Engines;0!
-Cloud City e' una città sospesa nell'atmosfera sopra quale pianeta?;;
-Yavin;0
-Tatooine;0
-Bespin;1
-Endor;0!
 Su quale pianeta Obi-Wan Kenobi dice a Luke di cercare Yoda?;;
 Alderaan;0
 Bespin;0
@@ -32,4 +27,9 @@ Qual e' il nome dell'Imperatore?;;
 Palpatine;1
 Dooku;0
 Grievous;0
-Nero;0!!
+Nero;0!
+Cloud City e' una città sospesa nell'atmosfera sopra quale pianeta?;;
+Yavin;0
+Tatooine;0
+Bespin;1
+Endor;0!!

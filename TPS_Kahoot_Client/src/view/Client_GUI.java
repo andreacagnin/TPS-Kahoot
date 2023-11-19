@@ -22,6 +22,7 @@ public class Client_GUI extends JFrame {
 
 	private JPanel contentPane;
 	private Quiz quiz;
+	private StampaPunteggio sp;
 	private Connessione connessione;
 	private Domande domande;
 
@@ -47,6 +48,9 @@ public class Client_GUI extends JFrame {
 		quiz.setLocation(0, 0);
 		contentPane.add(quiz);
 		
+		sp = new StampaPunteggio();
+		sp.setLocation(0, 0);
+		contentPane.add(sp);
 		
 	}
 
@@ -73,6 +77,15 @@ public class Client_GUI extends JFrame {
 	public Quiz getQuiz() {
 		// TODO Auto-generated method stub
 		return quiz;
+	}
+	
+
+	public StampaPunteggio getSp() {
+		return sp;
+	}
+
+	public void setSp(StampaPunteggio sp) {
+		this.sp = sp;
 	}
 
 	public Domande getDomande() {
@@ -102,6 +115,10 @@ public class Client_GUI extends JFrame {
 		quiz.getBtn4().setBackground(new Color(255, 102, 102));
 		
 	}
+	public void setPunteggi(int punteggi) {
+		sp.getLblPunteggioTotalizzatoNum().setText(String.valueOf(punteggi));
+	}
+	
 	
 	public JButton getBtn1() {
 		// TODO Auto-generated method stub
